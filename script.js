@@ -3,7 +3,7 @@ const userInput = document.getElementById('userInput');
 const sendButton = document.getElementById('sendButton');
 
 // Replace with your actual Gemini API key
-const API_KEY = 'YOUR_GEMINI_API_KEY'; // Replace with your key
+const API_KEY = 'AIzaSyANBvblyYIMf1ONtkzFYTRLiz5Zxg4k_8Y'; // Replace with your key
 const API_URL = 'https://api.gemini.com/v1/chat'; // Adjust based on the Gemini API docs
 
 sendButton.addEventListener('click', async () => {
