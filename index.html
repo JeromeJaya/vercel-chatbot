@@ -108,7 +108,7 @@
 }
 </style>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
@@ -133,15 +133,19 @@
     }
 
     async function getBotResponse(message) {
-        // In a real application, you would make an API call here
-        // For this example, we'll use a simple switch statement
-        switch (message.toLowerCase()) {
-            case 'hello':
-                return 'Hi there! How can I help you?';
-            case 'how are you':
-                return 'I'm doing well, thank you for asking!';
-            default:
-                return 'I'm sorry, I don't understand. Can you please rephrase your question?';
+        try {
+            const response = await fetch('http://localhost:3000/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message }),
+            });
+            const data = await response.json();
+            return data.reply;
+        } catch (error) {
+            console.error('Error:', error);
+            return 'Sorry, I encountered an error. Please try again later.';
         }
     }
 });
