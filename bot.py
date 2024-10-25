@@ -9,7 +9,7 @@ app.permanent_session_lifetime = timedelta(minutes=30)  # Set session timeout
 
 # Configure the Gemini API
 # It's better to use environment variables for API keys
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyCfpwY4QcJn0l1_zKaBZPtPp9Hksciy-qI')
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', 'AIzaSyANBvblyYIMf1ONtkzFYTRLiz5Zxg4k_8Y')
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
