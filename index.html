@@ -1,9 +1,21 @@
+<html>
+<body>
+    
+    <script>
+        puter.ai.chat("What are the benefits of exercise?")
+            .then(response => {
+                puter.print(response);
+            });
+    </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gemini Chatbot</title>
+    <script src="https://js.puter.com/v2/"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,7 +58,12 @@
         }
 
         async function sendMessage() {
-            const message = userInput.value.trim();
+            const message = userInput.value;
+            puter.ai.chat(message);
+            
+            const data = await response.json();
+            addMessage('Bot', puter.response);
+            /** const message = userInput.value.trim();
             if (message) {
                 addMessage('You', message);
                 userInput.value = '';
@@ -70,7 +87,7 @@
                     console.error('Error:', error);
                     addMessage('Bot', 'Sorry, I encountered an error.');
                 }
-            }
+            }**/
         }
 
         sendButton.addEventListener('click', sendMessage);
